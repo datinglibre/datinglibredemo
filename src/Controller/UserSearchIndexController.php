@@ -7,12 +7,10 @@ namespace App\Controller;
 use App\Form\FilterForm;
 use App\Form\FilterFormType;
 use DatingLibre\AppBundle\Controller\ProfilePaginator;
-use DatingLibre\AppBundle\Repository\InterestRepository;
-use DatingLibre\AppBundle\Repository\UserRepository;
 use DatingLibre\AppBundle\Service\FilterService;
 use DatingLibre\AppBundle\Service\ProfileService;
+use DatingLibre\AppBundle\Service\RequirementService;
 use DatingLibre\AppBundle\Service\SuspensionService;
-use DatingLibre\AppBundle\Service\UserInterestFilterService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -25,23 +23,21 @@ class UserSearchIndexController extends AbstractController
     private ProfileService $profileService;
     private FilterService $filterService;
     private SuspensionService $suspensionService;
-    private InterestRepository $interestRepository;
-    private UserInterestFilterService $userInterestFilterService;
+    private RequirementService $requirementService;
 
     public function __construct(
         EntityManagerInterface $entityManager,
         ProfileService $profileService,
         FilterService $filterService,
-        InterestRepository $interestRepository,
-        UserInterestFilterService $userInterestFilterService,
-        SuspensionService $suspensionService
-    ) {
+        SuspensionService $suspensionService,
+        RequirementService $requirementService
+    )
+    {
         $this->entityManager = $entityManager;
         $this->profileService = $profileService;
         $this->filterService = $filterService;
         $this->suspensionService = $suspensionService;
-        $this->userInterestFilterService = $userInterestFilterService;
-        $this->interestRepository = $interestRepository;
+        $this->requirementService = $requirementService;
     }
 
     public function index(Request $request)
@@ -59,20 +55,18 @@ class UserSearchIndexController extends AbstractController
         }
 
         $filter = $this->filterService->create($userId);
-        $userInterestFilters = $this->userInterestFilterService->findByUserId($userId);
         $filterForm = new FilterForm();
         $filterForm->setDistance($filter->getDistance());
         $filterForm->setMaxAge($filter->getMaxAge());
         $filterForm->setMinAge($filter->getMinAge());
         $filterForm->setRegion($filter->getRegion());
-        $filterForm->setInterests($userInterestFilters);
-
+        $filterForm->setRelationships($this->requirementService->getMultipleByUserAndCategory($userId, 'relationship'));
+        $filterForm->setSexes($this->requirementService->getMultipleByUserAndCategory($userId, 'sex'));
         $filterFormType = $this->createForm(
             FilterFormType::class,
             $filterForm,
             [
                 'regions' => $profile->getCity()->getRegion()->getCountry()->getRegions(),
-                'interests' => $this->interestRepository->findAll()
             ]
         );
 
@@ -84,7 +78,18 @@ class UserSearchIndexController extends AbstractController
                 $filter->setMinAge($filterForm->getMinAge());
                 $filter->setMaxAge($filterForm->getMaxAge());
                 $filter->setDistance($filterForm->getDistance());
-                $this->userInterestFilterService->createUserInterestFilters($userId, $filterForm->getInterests());
+
+                $this->requirementService->createRequirementsInCategory(
+                    $userId,
+                    'sex',
+                    $filterForm->getSexes()
+                );
+
+                $this->requirementService->createRequirementsInCategory(
+                    $userId,
+                    'relationship',
+                    $filterForm->getRelationships()
+                );
             });
 
             return new RedirectResponse($this->generateUrl('user_search_index'));

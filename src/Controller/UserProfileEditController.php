@@ -7,10 +7,8 @@ namespace App\Controller;
 use App\Form\ProfileForm;
 use App\Form\ProfileFormType;
 use DatingLibre\AppBundle\Service\ProfileService;
-use DatingLibre\AppBundle\Service\RequirementService;
 use DatingLibre\AppBundle\Service\SuspensionService;
 use DatingLibre\AppBundle\Service\UserAttributeService;
-use DatingLibre\AppBundle\Service\UserInterestService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -20,24 +18,18 @@ class UserProfileEditController extends AbstractController
 {
     private EntityManagerInterface $entityManager;
     private UserAttributeService $userAttributeService;
-    private RequirementService $requirementService;
     private ProfileService $profileService;
-    private UserInterestService $userInterestService;
     private SuspensionService $suspensionService;
 
     public function __construct(
         EntityManagerInterface $entityManager,
         ProfileService $profileService,
         UserAttributeService $userAttributeService,
-        RequirementService $requirementService,
-        UserInterestService $userInterestService,
         SuspensionService $suspensionService
     ) {
         $this->entityManager = $entityManager;
         $this->userAttributeService = $userAttributeService;
         $this->profileService = $profileService;
-        $this->requirementService = $requirementService;
-        $this->userInterestService = $userInterestService;
         $this->suspensionService = $suspensionService;
     }
 
@@ -64,26 +56,16 @@ class UserProfileEditController extends AbstractController
         $profileForm->setAbout($profile->getAbout());
         $profileForm->setUsername($profile->getUsername());
         $profileForm->setDob($profile->getDob());
-        $profileForm->setSexes($this->requirementService->getMultipleByUserAndCategory($userId, 'sex'));
         $profileForm->setSex($this->userAttributeService->getOneByCategoryName($userId, 'sex'));
-        $profileForm->setInterests($this->userInterestService->findInterestsByUserId($userId));
-
+        $profileForm->setRelationship($this->userAttributeService->getOneByCategoryName($userId, 'relationship'));
         $profileFormType = $this->createForm(ProfileFormType::class, $profileForm);
         $profileFormType->handleRequest($request);
 
         if ($profileFormType->isSubmitted() && $profileFormType->isValid()) {
-            $this->entityManager->transactional(function ($entityManager) use ($userId, $profile,  $profileFormType, $profileForm) {
-                $this->userInterestService->createUserInterests($userId, $profileForm->getInterests());
-
+            $this->entityManager->transactional(function($entityManager) use ($userId, $profile, $profileForm) {
                 $this->userAttributeService->createUserAttributes(
                     $userId,
-                    [$profileForm->getSex()]
-                );
-
-                $this->requirementService->createRequirementsInCategory(
-                    $userId,
-                    'sex',
-                    $profileForm->getSexes()
+                    [$profileForm->getSex(), $profileForm->getRelationship()]
                 );
 
                 $profile->setCity($profileForm->getCity());
