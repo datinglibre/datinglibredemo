@@ -6,7 +6,6 @@ purge_user_archives_parameters: 30
 app_secret: replacethissecret
 postgres_port: 5432
 pgbouncer_port: 6543
-# used when we cannot go via pgbouncer as we require a session (pgbouncer is configured for transactions, not sessions)
 psql_direct_connection: psql "sslmode=verify-ca sslrootcert={{ database_root_certificate_path }} password={{ database_password }} dbname=datinglibre host={{ database_host }} port={{ postgres_port }}"
 pgbouncer_connection_url: postgresql://datinglibre:{{ database_password }}@{{ database_host }}:{{ pgbouncer_port }}/datinglibre
 datinglibre_certificate_path: /etc/ssl/certs/datinglibre.crt

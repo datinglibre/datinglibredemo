@@ -76,9 +76,6 @@
     proto: "tcp"
     from_ip: "{{ webserver_host }}"
 
-# pgbouncer configured as transaction pooling does not
-# support session features, so also allow connecting
-# to postgres directly.
 - name: Allow direct SSL connections to postgres
   become: true
   become_user: postgres
