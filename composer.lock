@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "92863bdad04ab09ccd7d804ad7809ef5",
+    "content-hash": "e20184b7c402264f5b7805738886a08b",
     "packages": [
         {
             "name": "async-aws/core",
@@ -132,16 +132,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.185.17",
+            "version": "3.185.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "3f639e8a6fff677f788700940a68dc138ea5da71"
+                "reference": "7db5021b3c823235ee7f2ceb3f75ceb0811d74ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/3f639e8a6fff677f788700940a68dc138ea5da71",
-                "reference": "3f639e8a6fff677f788700940a68dc138ea5da71",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/7db5021b3c823235ee7f2ceb3f75ceb0811d74ac",
+                "reference": "7db5021b3c823235ee7f2ceb3f75ceb0811d74ac",
                 "shasum": ""
             },
             "require": {
@@ -216,9 +216,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.185.17"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.185.19"
             },
-            "time": "2021-07-20T18:19:09+00:00"
+            "time": "2021-07-22T18:18:09+00:00"
         },
         {
             "name": "composer/package-versions-deprecated",
@@ -341,16 +341,16 @@
         },
         {
             "name": "datinglibre/datinglibre-app-bundle",
-            "version": "v0.58.0",
+            "version": "v0.59.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/datinglibre/datinglibre-app-bundle.git",
-                "reference": "6767b6c50648f47425405db1c5b7d83f93e48083"
+                "reference": "7e59260c62118e3555aaa1f5fc8c636c201288ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/datinglibre/datinglibre-app-bundle/zipball/6767b6c50648f47425405db1c5b7d83f93e48083",
-                "reference": "6767b6c50648f47425405db1c5b7d83f93e48083",
+                "url": "https://api.github.com/repos/datinglibre/datinglibre-app-bundle/zipball/7e59260c62118e3555aaa1f5fc8c636c201288ef",
+                "reference": "7e59260c62118e3555aaa1f5fc8c636c201288ef",
                 "shasum": ""
             },
             "require": {
@@ -414,9 +414,9 @@
             "description": "The core overridable code of DatingLibre",
             "support": {
                 "issues": "https://github.com/datinglibre/datinglibre-app-bundle/issues",
-                "source": "https://github.com/datinglibre/datinglibre-app-bundle/tree/v0.58.0"
+                "source": "https://github.com/datinglibre/datinglibre-app-bundle/tree/v0.59.0"
             },
-            "time": "2021-07-21T12:52:17+00:00"
+            "time": "2021-07-23T16:16:22+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -2329,16 +2329,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "2.3.1",
+            "version": "2.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "9738e495f288eec0b187e310b7cdbbb285777dbe"
+                "reference": "71312564759a7db5b789296369c1a264efc43aad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/9738e495f288eec0b187e310b7cdbbb285777dbe",
-                "reference": "9738e495f288eec0b187e310b7cdbbb285777dbe",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/71312564759a7db5b789296369c1a264efc43aad",
+                "reference": "71312564759a7db5b789296369c1a264efc43aad",
                 "shasum": ""
             },
             "require": {
@@ -2409,7 +2409,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/monolog/issues",
-                "source": "https://github.com/Seldaek/monolog/tree/2.3.1"
+                "source": "https://github.com/Seldaek/monolog/tree/2.3.2"
             },
             "funding": [
                 {
@@ -2421,7 +2421,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-14T11:56:39+00:00"
+            "time": "2021-07-23T07:42:52+00:00"
         },
         {
             "name": "mtdowling/jmespath.php",
@@ -11237,6 +11237,7 @@
                     "type": "github"
                 }
             ],
+            "abandoned": true,
             "time": "2020-09-28T06:45:17+00:00"
         },
         {
