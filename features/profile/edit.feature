@@ -78,17 +78,17 @@ Feature:
         And I should see "chelsea_blue"
         Then I should not see "Username has been taken"
 
-   @profile
-   Scenario: I can only enter a username with letters and numbers
-       Given the following profiles exist:
-           | email                    | attributes    | requirements | city   | age |
-           | chelsea_blue@example.com | circle, green | square, blue | London | 30  |
-       And a user with email "user@example.com"
-       And I am logged in with "user@example.com"
-       And I am on the profile edit page
-       And I fill in "chelsea?blue" for "profile_form_username"
-       And I press "Save"
-       Then I should see "Username may only contain unaccented letters and numbers, no spaces"
+    @profile
+    Scenario: I can only enter a username with letters and numbers
+        Given the following profiles exist:
+            | email                    | attributes    | requirements | city   | age |
+            | chelsea_blue@example.com | circle, green | square, blue | London | 30  |
+        And a user with email "user@example.com"
+        And I am logged in with "user@example.com"
+        And I am on the profile edit page
+        And I fill in "chelsea?blue" for "profile_form_username"
+        And I press "Save"
+        Then I should see "Username may only contain unaccented letters and numbers, no spaces"
 
     @javascript
     Scenario: I can fill in my profile
