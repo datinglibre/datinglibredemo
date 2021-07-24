@@ -341,16 +341,16 @@
         },
         {
             "name": "datinglibre/datinglibre-app-bundle",
-            "version": "v1.0.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/datinglibre/datinglibre-app-bundle.git",
-                "reference": "de255550e0d61d763a429cda6182efdd3338f200"
+                "reference": "ea01cb2b86d73fb1de9e3bf1a930c242e38a2a44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/datinglibre/datinglibre-app-bundle/zipball/de255550e0d61d763a429cda6182efdd3338f200",
-                "reference": "de255550e0d61d763a429cda6182efdd3338f200",
+                "url": "https://api.github.com/repos/datinglibre/datinglibre-app-bundle/zipball/ea01cb2b86d73fb1de9e3bf1a930c242e38a2a44",
+                "reference": "ea01cb2b86d73fb1de9e3bf1a930c242e38a2a44",
                 "shasum": ""
             },
             "require": {
@@ -414,9 +414,9 @@
             "description": "The core overridable code of DatingLibre",
             "support": {
                 "issues": "https://github.com/datinglibre/datinglibre-app-bundle/issues",
-                "source": "https://github.com/datinglibre/datinglibre-app-bundle/tree/v1.0.0"
+                "source": "https://github.com/datinglibre/datinglibre-app-bundle/tree/v1.1.0"
             },
-            "time": "2021-07-24T07:01:54+00:00"
+            "time": "2021-07-24T07:22:40+00:00"
         },
         {
             "name": "doctrine/annotations",
