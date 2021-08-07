@@ -27,6 +27,7 @@ security:
                 samesite: strict
             logout:
                 path: logout
+                target: /?logout=success
     access_control:
         - { path: ^/ccbill, roles: PUBLIC_ACCESS, ips: [ 64.38.212.1/24, 64.38.215.1/24, 64.38.240.1/24, 64.38.241.1/24 ] }
         - { path: ^/moderator, roles: [ROLE_ADMIN, ROLE_MODERATOR]}
