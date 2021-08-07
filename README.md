@@ -3,7 +3,9 @@
 
 ![Build Status](https://github.com/datinglibre/datinglibre/actions/workflows/datinglibre.yml/badge.svg)
 
-DatingLibre is an open source white-label dating site platform (implemented as a Symfony bundle). It uses: 
+Open issues on the [datinglibre-app-bundle](https://github.com/datinglibre/datinglibre-app-bundle) project.
+
+[DatingLibre](https://datinglibre.com) is an open source white-label dating site platform (implemented as a Symfony bundle). It uses: 
 - `PHP` 7.4 or 8.0
 - Symfony
 - PostgreSQL
@@ -16,8 +18,6 @@ DatingLibre is made up of the following repositories:
 - the [datinglibre-app-bundle](https://github.com/datinglibre/datinglibre-app-bundle) which contains controllers, repositories, services, entities, database migrations and Behat test contexts.
 - the [DatingLibreDemo](https://github.com/datinglibre/DatingLibreDemo) repository, which shows how the `datinglibre-app-bundle` can be 
 overridden to build a custom website: overriding functionality as required, whilst leaving the rest of the bundle upgradable via `composer upgrade`. The code in this repository is deployed to the live test site, which can be seen at [datinglibre.com](https://datinglibre.com).
-  
-All PRs should be opened against this reference repository and/or the [datinglibre-app-bundle](https://github.com/datinglibre/datinglibre-app-bundle).
 
 ## Security
 
