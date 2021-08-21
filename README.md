@@ -11,7 +11,15 @@ Other demo branches:
 
 Please open pull requests against the [reference implementation](https://github.com/datinglibre/DatingLibre) and the [dating-libre-app-bundle](https://github.com/datinglibre/datinglibre-app-bundle).
 
-For further information on how to customize the [datinglibre-app-bundle](https://github.com/datinglibre/datinglibre-app-bundle), see the [DatingLibre Wiki](https://github.com/datinglibre/DatingLibre/wiki/Customization) and [how to override a Symfony bundle](https://symfony.com/doc/current/bundles/override.html).
+### Create your own site
+
+You can use this demo project as a template to create your own site
+
+    composer create-project datinglibre/datinglibredemo MySite
+
+See the [DatingLibre Wiki](https://github.com/datinglibre/DatingLibre/wiki) on how to setup the project on your local machine and deploy the website.
+
+You can either override the [datinglibre-app-bundle](https://github.com/datinglibre/datinglibre-app-bundle) (see [how to override a Symfony bundle](https://symfony.com/doc/current/bundles/override.html) and [customisation](https://github.com/datinglibre/DatingLibre/wiki/Customization) on the wiki) or you can open a PR on the [reference implementation](https://github.com/datinglibre/DatingLibre) and/or the [dating-libre-app-bundle](https://github.com/datinglibre/datinglibre-app-bundle) if you think a change should be part of the project.
 
 The following files were changed/created in order to create the demo site:
 
