@@ -1,7 +1,7 @@
 {
     "type": "project",
     "license": "MIT",
-    "name": "datinglibre/datinglibre-demo",
+    "name": "datinglibre/datinglibredemo",
     "description": "A demonstration of how to customize the datinglibre-app-bundle",
     "require": {
         "php": "^7.4||^8.0",
