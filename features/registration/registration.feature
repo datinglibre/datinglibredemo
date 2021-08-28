@@ -13,6 +13,17 @@ Feature:
         And I click the confirmation link and see "Your account is now enabled. You can now login"
 
     @registration
+    Scenario: I cannot login without confirming my account
+        When I am on the homepage
+        And I follow "Register"
+        And I fill in my registration details correctly with email "user@example.com"
+        Then I should be on "/"
+        And I should see "Registration successful. Please check your email to confirm your account"
+        And I log in using email "user@example.com"
+        Then I should be on "/"
+        And I should see "Incorrect username or password"
+
+    @registration
     Scenario: I am notified when my account confirmation is unsuccessful
         When I am on the homepage
         And I follow "Register"
